@@ -7,7 +7,7 @@ public class Player {
     private long attempts = 0;
     private long score = 0;
     private long storedSips = 0;
-    private boolean doubleUp;
+    private boolean doubleUp = false;
 
     public Player(String name) {
         this.name = name;

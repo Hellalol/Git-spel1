@@ -31,4 +31,20 @@ public class PlayerList {
     public void shufflePlayers(){
         Collections.shuffle(playerList);
     }
+
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public void setPlayerList(List<Player> playerList) {
+        this.playerList = playerList;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }

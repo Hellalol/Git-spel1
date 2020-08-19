@@ -1,28 +1,26 @@
 package com.pillan;
 
+import java.util.List;
 import java.util.Random;
 
 public class Game {
 
     Random r = new Random();
     private Player currentPlayer;
+    private int currentPlayerIndex = 0;
     private int answer;
     private int number;
+    private List<Player> playerList;
 
-    public Game(Player currentPlayer) {
-        generateAnswer();
-        generateNumber();
-        this.currentPlayer = currentPlayer;
+    public Game(PlayerList playerList) {
+        renewNumbers();
+        this.playerList = playerList.getPlayerList();
+        this.currentPlayer = playerList.getPlayerList().get(currentPlayerIndex);
     }
 
-    public void generateAnswer () {
+    public void renewNumbers(){
         answer = r.nextInt((100)+1);
-        //System.out.println("answer" + answer);
-    }
-
-    public void generateNumber () {
         number = r.nextInt((100)+1);
-        //System.out.println("shown number" + number);
     }
 
 
@@ -30,8 +28,18 @@ public class Game {
         return currentPlayer;
     }
 
+    public void setCurrentPlayerToIndex(){
+        currentPlayer = playerList.get(currentPlayerIndex);
+    }
+
 
     public String guess(boolean over) {
+
+        if(currentPlayerIndex + 1 > playerList.size())
+            currentPlayerIndex = 0 ;
+        else
+            currentPlayerIndex =+ 1;
+
         currentPlayer.setAttempts(currentPlayer.getAttempts() + 1);
 
         if(answer == number) return "same";
@@ -51,5 +59,13 @@ public class Game {
             return "incorrect";}
     }
 
+    public void playerDrinks(){
+        currentPlayer.setStoredSips(0);
+    }
+
+    public void playerDoubleUp(){
+        currentPlayer.setStoredSips(currentPlayer.getStoredSips() * 2);
+        currentPlayer.setDoubleUp(true);
+    }
 
 }
