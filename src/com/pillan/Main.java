@@ -3,8 +3,7 @@ package com.pillan;
 public class Main {
 
     public static void main(String[] args) {
-
-        System.out.println("Hello world");
+        GameBoard g = new GameBoard();
 
     }
 }
