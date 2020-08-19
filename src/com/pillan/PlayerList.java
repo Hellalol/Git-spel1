@@ -11,9 +11,9 @@ public class PlayerList {
     Player player;
 
 
-    public void createPlayers(int amount) {
-        for (int i = 0; i < amount; i++) {
-            player = new Player("player" + i);
+    public void createPlayers(List<String> playerNameList) {
+        for (String name: playerNameList) {
+            player = new Player(name);
             playerList.add(player);
         }
     }
