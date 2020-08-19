@@ -22,7 +22,15 @@ public class GameBoard {
     JPanel panel = new JPanel();
     JButton submit2 = new JButton("start game!");
 
+    //third window
+    JFrame frame3 = new JFrame();
+    JLabel label3 = new JLabel("Namn");
+    JButton hogre = new JButton("Högre");
+    JButton lagre = new JButton("Lägre");
+
     GameBoard(){
+
+        // frame 1
         frame1.setSize(400,500);
         frame1.setLayout(new GridLayout(3,1));
         frame1.setVisible(true);
@@ -43,6 +51,7 @@ public class GameBoard {
 
         });
 
+        // frame 2
         frame2.add(panel);
         frame2.setSize(400,500);
         panel.setLayout(new GridLayout(amountOfPlayers,1));
@@ -51,8 +60,17 @@ public class GameBoard {
         submit2.addActionListener(e -> {
             iterateOverJTextFields(panel);
             frame2.setVisible(false);
+            frame3.setVisible(true);
 
         });
+
+        //frame 3
+        frame3.setLayout(new GridLayout(1,3));
+        frame3.setLocationRelativeTo(null);
+        frame3.setSize(400,100);
+        frame3.add(label3);
+        frame3.add(lagre);
+        frame3.add(hogre);
     }
 
     public void createInputList(){
