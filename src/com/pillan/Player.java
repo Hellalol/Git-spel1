@@ -1,11 +1,15 @@
 package com.pillan;
 
-public class Person {
+public class Player {
+
+
     private String name;
     private long attempts;
     private long score;
+    private long storedSips;
+    private boolean doubleUp;
 
-    public Person(String name) {
+    public Player(String name) {
         this.name = name;
     }
 
@@ -32,5 +36,23 @@ public class Person {
     public void setScore(long score) {
         this.score = score;
     }
+
+
+    public long getStoredSips() {
+        return storedSips;
+    }
+
+    public void setStoredSips(long storedSips) {
+        this.storedSips = storedSips;
+    }
+
+    public boolean isDoubleUp() {
+        return doubleUp;
+    }
+
+    public void setDoubleUp(boolean doubleUp) {
+        this.doubleUp = doubleUp;
+    }
 }
+
 
