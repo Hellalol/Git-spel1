@@ -4,9 +4,9 @@ public class Player {
 
 
     private String name;
-    private long attempts;
-    private long score;
-    private long storedSips;
+    private long attempts = 0;
+    private long score = 0;
+    private long storedSips = 0;
     private boolean doubleUp;
 
     public Player(String name) {

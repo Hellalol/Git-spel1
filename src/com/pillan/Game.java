@@ -9,6 +9,11 @@ public class Game {
     private int answer;
     private int number;
 
+    public Game(Player currentPlayer) {
+        generateAnswer();
+        generateNumber();
+        this.currentPlayer = currentPlayer;
+    }
 
     public void generateAnswer () {
         answer = r.nextInt((100)+1);
@@ -25,16 +30,25 @@ public class Game {
         return currentPlayer;
     }
 
-    public void setCurrentPlayer(Player currentPlayer) {
-        this.currentPlayer = currentPlayer;
-    }
-
 
     public String guess(boolean over) {
+        currentPlayer.setAttempts(currentPlayer.getAttempts() + 1);
+
         if(answer == number) return "same";
-        else if(over && number > answer) return "correct";
-        else if(!over && number < answer) return "correct";
-        else return "incorrect";
+
+        else if(over && number > answer) {
+            currentPlayer.setScore(currentPlayer.getScore() + 1);
+            return "correct";
+        }
+
+        else if(!over && number < answer) {
+            currentPlayer.setScore(currentPlayer.getScore() + 1);
+            return "correct";
+        }
+
+        else {
+            currentPlayer.setStoredSips(currentPlayer.getStoredSips() + 1);
+            return "incorrect";}
     }
 
 
