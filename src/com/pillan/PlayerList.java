@@ -2,6 +2,7 @@ package com.pillan;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PlayerList {
@@ -12,7 +13,7 @@ public class PlayerList {
 
     public void createPlayers(int amount) {
         for (int i = 0; i < amount; i++) {
-            player = new Player("temp" + i);
+            player = new Player("player" + i);
             playerList.add(player);
         }
     }
@@ -25,5 +26,9 @@ public class PlayerList {
 
         }
         return null;
+    }
+
+    public void shufflePlayers(){
+        Collections.shuffle(playerList);
     }
 }
