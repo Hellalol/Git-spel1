@@ -92,9 +92,11 @@ public class GameBoard {
         hogre.addActionListener(e->{
 
             if (newGame.guess(true).equals("correct")){
-                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
+                logg.append(labelName.getText() + "- INTE DRICK\n");
+                //logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
             }else{
-                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
+                logg.append(labelName.getText() + "- DRICK\n");
+                //logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
             }
             labelDrickOrNot.setText(" " + newGame.getNumber());
 
@@ -105,9 +107,11 @@ public class GameBoard {
         lagre.addActionListener(e -> {
 
             if (newGame.guess(false).equals("correct")){
-                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
+                logg.append(labelName.getText() + "- INTE DRICK\n");
+                //logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
             }else{
-                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
+                logg.append(labelName.getText() + "- DRICK\n");
+                //logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
             }
             labelDrickOrNot.setText(" " + newGame.getNumber());
 

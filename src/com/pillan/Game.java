@@ -18,6 +18,10 @@ public class Game {
         this.currentPlayer = playerList.getPlayerList().get(currentPlayerIndex);
     }
 
+    public int getAnswer() {
+        return answer;
+    }
+
     public int getNumber() {
         return number;
     }
