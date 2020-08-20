@@ -11,9 +11,9 @@ public class PlayerList {
     Player player;
 
 
-    public void createPlayers(int amount) {
-        for (int i = 0; i < amount; i++) {
-            player = new Player("player" + i);
+    public void createPlayers(List<String> playerNameList) {
+        for (String name: playerNameList) {
+            player = new Player(name);
             playerList.add(player);
         }
     }
@@ -30,5 +30,21 @@ public class PlayerList {
 
     public void shufflePlayers(){
         Collections.shuffle(playerList);
+    }
+
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public void setPlayerList(List<Player> playerList) {
+        this.playerList = playerList;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
