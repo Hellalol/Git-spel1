@@ -34,29 +34,33 @@ public class Game {
 
 
     public String guess(boolean over) {
+        String toReturn;
+
+        if(answer == number) toReturn = "same";
+
+        else if(over && number > answer) {
+            currentPlayer.setScore(currentPlayer.getScore() + 1);
+            toReturn = "correct";
+        }
+
+        else if(!over && number < answer) {
+            currentPlayer.setScore(currentPlayer.getScore() + 1);
+            toReturn = "correct";
+        }
+
+        else {
+            currentPlayer.setStoredSips(currentPlayer.getStoredSips() + 1);
+            toReturn = "incorrect";}
+
+
+        currentPlayer.setAttempts(currentPlayer.getAttempts() + 1);
 
         if(currentPlayerIndex + 1 > playerList.size())
             currentPlayerIndex = 0 ;
         else
             currentPlayerIndex =+ 1;
 
-        currentPlayer.setAttempts(currentPlayer.getAttempts() + 1);
-
-        if(answer == number) return "same";
-
-        else if(over && number > answer) {
-            currentPlayer.setScore(currentPlayer.getScore() + 1);
-            return "correct";
-        }
-
-        else if(!over && number < answer) {
-            currentPlayer.setScore(currentPlayer.getScore() + 1);
-            return "correct";
-        }
-
-        else {
-            currentPlayer.setStoredSips(currentPlayer.getStoredSips() + 1);
-            return "incorrect";}
+        return toReturn;
     }
 
     public void playerDrinks(){
