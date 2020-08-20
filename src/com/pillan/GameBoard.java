@@ -12,6 +12,7 @@ public class GameBoard {
     PlayerList playerList = new PlayerList();
     List<String> personNameList = new ArrayList<>();
     Game newGame;
+    String firstNameAndDrink;
 
     //first window
     JFrame frame1 = new JFrame();
@@ -70,6 +71,7 @@ public class GameBoard {
             frame3.setVisible(true);
             labelName.setText(newGame.getCurrentPlayer().getName());
             labelDrickOrNot.setText(" " + newGame.getNumber());
+            firstNameAndDrink = newGame.getCurrentPlayer().getName();
 
         });
 
@@ -91,11 +93,10 @@ public class GameBoard {
 
             if (newGame.guess(true).equals("correct")){
                 logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
-                labelDrickOrNot.setText(" " + newGame.getNumber());
             }else{
                 logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
-                labelDrickOrNot.setText(" " + newGame.getNumber());
             }
+            labelDrickOrNot.setText(" " + newGame.getNumber());
 
             newGame.renewNumbers();
             labelName.setText(newGame.getCurrentPlayer().getName());
@@ -105,13 +106,13 @@ public class GameBoard {
 
             if (newGame.guess(false).equals("correct")){
                 logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
-                labelDrickOrNot.setText(" " + newGame.getNumber());
             }else{
                 logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
-                labelDrickOrNot.setText(" " + newGame.getNumber());
             }
+            labelDrickOrNot.setText(" " + newGame.getNumber());
+
             newGame.renewNumbers();
-            labelDrickOrNot.setText(newGame.getCurrentPlayer().getName());
+            labelName.setText(newGame.getCurrentPlayer().getName());
         });
     }
 
