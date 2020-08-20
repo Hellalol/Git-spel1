@@ -84,13 +84,11 @@ public class GameBoard {
 
             if (newGame.guess(true).equals("correct")){
                 labelDrickOrNot.setText("inte drick");
-            }else if(newGame.guess(true).equals("incorrect")){
-                labelDrickOrNot.setText("drick");
             }else{
-                labelDrickOrNot.setText("alla dricker");
+                labelDrickOrNot.setText("drick");
             }
 
-            //newGame.renewNumbers();
+            newGame.renewNumbers();
             labelName.setText(newGame.getCurrentPlayer().getName());
         });
 
@@ -98,12 +96,10 @@ public class GameBoard {
 
             if (newGame.guess(false).equals("correct")){
                 labelDrickOrNot.setText("inte drick");
-            }else if(newGame.guess(false).equals("incorrect")){
-                labelDrickOrNot.setText("drick");
             }else{
-                labelDrickOrNot.setText("alla dricker");
+                labelDrickOrNot.setText("drick");
             }
-            //newGame.renewNumbers();
+            newGame.renewNumbers();
             labelName.setText(newGame.getCurrentPlayer().getName());
         });
     }

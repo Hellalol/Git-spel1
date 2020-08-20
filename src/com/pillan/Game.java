@@ -37,21 +37,14 @@ public class Game {
         String toReturn;
 
         if(answer == number) toReturn = "same";
-
         else if(over && number > answer) {
-            currentPlayer.setScore(currentPlayer.getScore() + 1);
             toReturn = "correct";
         }
-
         else if(!over && number < answer) {
-            currentPlayer.setScore(currentPlayer.getScore() + 1);
             toReturn = "correct";
         }
-
         else {
-            currentPlayer.setStoredSips(currentPlayer.getStoredSips() + 1);
             toReturn = "incorrect";}
-
 
         currentPlayer.setAttempts(currentPlayer.getAttempts() + 1);
 
@@ -64,13 +57,5 @@ public class Game {
         return toReturn;
     }
 
-    public void playerDrinks(){
-        currentPlayer.setStoredSips(0);
-    }
-
-    public void playerDoubleUp(){
-        currentPlayer.setStoredSips(currentPlayer.getStoredSips() * 2);
-        currentPlayer.setDoubleUp(true);
-    }
 
 }

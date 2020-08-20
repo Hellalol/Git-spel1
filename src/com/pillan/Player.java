@@ -6,8 +6,6 @@ public class Player {
     private String name;
     private long attempts = 0;
     private long score = 0;
-    private long storedSips = 0;
-    private boolean doubleUp = false;
 
     public Player(String name) {
         this.name = name;
@@ -37,20 +35,4 @@ public class Player {
         this.score = score;
     }
 
-
-    public long getStoredSips() {
-        return storedSips;
-    }
-
-    public void setStoredSips(long storedSips) {
-        this.storedSips = storedSips;
-    }
-
-    public boolean isDoubleUp() {
-        return doubleUp;
-    }
-
-    public void setDoubleUp(boolean doubleUp) {
-        this.doubleUp = doubleUp;
-    }
 }
