@@ -11,11 +11,12 @@ public class PlayerList {
     Player player;
 
 
-    public void createPlayers(List<String> playerNameList) {
+    public List<Player> createPlayers(List<String> playerNameList) {
         for (String name: playerNameList) {
             player = new Player(name);
             playerList.add(player);
         }
+        return playerList;
     }
 
     public Player findPlayer(String name) {

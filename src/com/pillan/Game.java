@@ -55,11 +55,12 @@ public class Game {
 
         currentPlayer.setAttempts(currentPlayer.getAttempts() + 1);
 
-        if(currentPlayerIndex + 1 > playerList.size())
+        if(currentPlayerIndex + 1 > playerList.size() - 1)
             currentPlayerIndex = 0 ;
         else
-            currentPlayerIndex =+ 1;
+            currentPlayerIndex++;
 
+        setCurrentPlayerToIndex();
         return toReturn;
     }
 
