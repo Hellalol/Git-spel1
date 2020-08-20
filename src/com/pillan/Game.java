@@ -18,6 +18,10 @@ public class Game {
         this.currentPlayer = playerList.getPlayerList().get(currentPlayerIndex);
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     public void renewNumbers(){
         answer = r.nextInt((100)+1);
         number = r.nextInt((100)+1);

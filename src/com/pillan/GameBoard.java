@@ -29,7 +29,7 @@ public class GameBoard {
     JPanel knapparna = new JPanel();
     JLabel labelName = new JLabel("Namn");
     JLabel labelDrickOrNot = new JLabel();
-    JTextArea logg = new JTextArea();
+    JTextArea logg = new JTextArea(100,40);
     JButton hogre = new JButton("Högre");
     JButton lagre = new JButton("Lägre");
 
@@ -78,7 +78,7 @@ public class GameBoard {
 
         knapparna.setLayout(new GridLayout(1,3));
         frame3.setLocationRelativeTo(null);
-        frame3.setSize(400,100);
+        frame3.setSize(400,500);
         frame3.add(logg,BorderLayout.CENTER);
         knapparna.add(labelName);
         knapparna.add(lagre);
@@ -89,10 +89,10 @@ public class GameBoard {
         hogre.addActionListener(e->{
 
             if (newGame.guess(true).equals("correct")){
-                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK");
+                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
                 labelDrickOrNot.setText("INTE DRICK");
             }else{
-                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK");
+                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
                 labelDrickOrNot.setText("DRICK");
             }
 
@@ -103,14 +103,14 @@ public class GameBoard {
         lagre.addActionListener(e -> {
 
             if (newGame.guess(false).equals("correct")){
-                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK");
+                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK\n");
                 labelDrickOrNot.setText("INTE DRICK");
             }else{
-                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK");
+                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK\n");
                 labelDrickOrNot.setText("DRICK");
             }
             newGame.renewNumbers();
-            labelName.setText(newGame.getCurrentPlayer().getName());
+            labelName.setText(newGame.);
         });
     }
 
