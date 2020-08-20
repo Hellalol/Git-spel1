@@ -26,8 +26,10 @@ public class GameBoard {
 
     //third window
     JFrame frame3 = new JFrame();
+    JPanel knapparna = new JPanel();
     JLabel labelName = new JLabel("Namn");
     JLabel labelDrickOrNot = new JLabel();
+    JTextArea logg = new JTextArea();
     JButton hogre = new JButton("Högre");
     JButton lagre = new JButton("Lägre");
 
@@ -71,21 +73,27 @@ public class GameBoard {
         });
 
         //frame 3
-        frame3.setLayout(new GridLayout(1,3));
+        frame3.setLayout(new BorderLayout());
+        frame3.add(knapparna,BorderLayout.NORTH);
+
+        knapparna.setLayout(new GridLayout(1,3));
         frame3.setLocationRelativeTo(null);
         frame3.setSize(400,100);
-        frame3.add(labelName);
-        frame3.add(lagre);
-        frame3.add(hogre);
-        frame3.add(labelDrickOrNot);
+        frame3.add(logg,BorderLayout.CENTER);
+        knapparna.add(labelName);
+        knapparna.add(lagre);
+        knapparna.add(hogre);
+        knapparna.add(labelDrickOrNot);
 
 
         hogre.addActionListener(e->{
 
             if (newGame.guess(true).equals("correct")){
-                labelDrickOrNot.setText("inte drick");
+                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK");
+                labelDrickOrNot.setText("INTE DRICK");
             }else{
-                labelDrickOrNot.setText("drick");
+                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK");
+                labelDrickOrNot.setText("DRICK");
             }
 
             newGame.renewNumbers();
@@ -95,9 +103,11 @@ public class GameBoard {
         lagre.addActionListener(e -> {
 
             if (newGame.guess(false).equals("correct")){
-                labelDrickOrNot.setText("inte drick");
+                logg.append(newGame.getCurrentPlayer().getName() + " - INTE DRICK");
+                labelDrickOrNot.setText("INTE DRICK");
             }else{
-                labelDrickOrNot.setText("drick");
+                logg.append(newGame.getCurrentPlayer().getName() + " - DRICK");
+                labelDrickOrNot.setText("DRICK");
             }
             newGame.renewNumbers();
             labelName.setText(newGame.getCurrentPlayer().getName());
