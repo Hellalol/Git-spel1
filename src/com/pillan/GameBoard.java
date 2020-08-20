@@ -116,6 +116,7 @@ public class GameBoard {
 
             });
 
+
             lower.addActionListener(f -> {
 
                 if (newGame.guess(false).equals("correct")) {
