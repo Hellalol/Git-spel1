@@ -73,6 +73,7 @@ public class GameBoard {
         frame3.add(hogre);
     }
 
+
     public void createInputList(){
         for (int i = 0; i < amountOfPlayers; i++) {
             panel.add(new JTextField());
