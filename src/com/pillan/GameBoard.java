@@ -90,7 +90,6 @@ public class GameBoard {
             labelName.setText(newGame.getCurrentPlayer().getName());
             labelDrinkOrNot.setText(" " + newGame.getNumber());
             firstNameAndDrink = newGame.getCurrentPlayer().getName();
-            newGame.renewNumbers();
 
             startPanel.setVisible(false);
             frame3.add(buttons, BorderLayout.NORTH);
@@ -104,14 +103,14 @@ public class GameBoard {
             higher.addActionListener(f -> {
 
                 if (newGame.guess(true).equals("correct")) {
-                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK\n");
+                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK" + newGame.getAnswer() + "\n" );
                 } else {
-                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK\n");
+                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK " + newGame.getAnswer() + "\n");
                 }
 
+                newGame.renewNumbers();
                 labelDrinkOrNot.setText(" " + newGame.getNumber());
 
-                newGame.renewNumbers();
                 labelName.setText(newGame.getCurrentPlayer().getName());
 
             });
@@ -120,14 +119,14 @@ public class GameBoard {
             lower.addActionListener(f -> {
 
                 if (newGame.guess(false).equals("correct")) {
-                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK\n");
+                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK" + newGame.getAnswer() + "\n");
                 } else {
-                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK\n");
+                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK " + newGame.getAnswer() + "\n");
                 }
 
+                newGame.renewNumbers();
                 labelDrinkOrNot.setText(" " + newGame.getNumber());
 
-                newGame.renewNumbers();
                 labelName.setText(newGame.getCurrentPlayer().getName());
 
             });
