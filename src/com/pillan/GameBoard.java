@@ -88,7 +88,7 @@ public class GameBoard {
         startKnappFrame3.addActionListener(e -> {
 
             labelNameFrame3.setText(newGame.getCurrentPlayer().getName());
-            labelDrinkOrNotFrame3.setText(" " + newGame.getNumber());
+            labelDrinkOrNotFrame3.setText(" " + newGame.getNumber1());
             firstNameAndDrink = newGame.getCurrentPlayer().getName();
 
 
@@ -104,13 +104,13 @@ public class GameBoard {
             higherFrame3.addActionListener(f -> {
 
                 if (newGame.guess(true).equals("correct")) {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK, " + "the number was: " + newGame.getAnswer() + "\n" );
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
                 } else {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK, " + "the number was: " + newGame.getAnswer() + "\n" );
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
                 }
 
                 newGame.renewNumbers();
-                labelDrinkOrNotFrame3.setText(" " + newGame.getNumber());
+                labelDrinkOrNotFrame3.setText(" " + newGame.getNumber1());
 
                 labelNameFrame3.setText(newGame.getCurrentPlayer().getName());
 
@@ -120,13 +120,13 @@ public class GameBoard {
             lowerFrame3.addActionListener(f -> {
 
                 if (newGame.guess(false).equals("correct")) {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK, " + "the number was: " + newGame.getAnswer() + "\n" );
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
                 } else {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK, " + "the number was: " + newGame.getAnswer() + "\n" );
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
                 }
 
                 newGame.renewNumbers();
-                labelDrinkOrNotFrame3.setText(" " + newGame.getNumber());
+                labelDrinkOrNotFrame3.setText(" " + newGame.getNumber1());
 
                 labelNameFrame3.setText(newGame.getCurrentPlayer().getName());
 

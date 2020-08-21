@@ -8,8 +8,8 @@ public class Game {
     Random r = new Random();
     private Player currentPlayer;
     private int currentPlayerIndex = 0;
-    private int answer;
-    private int number;
+    private int number2;
+    private int number1;
     private List<Player> playerList;
 
     public Game(PlayerList playerList) {
@@ -18,17 +18,17 @@ public class Game {
         this.currentPlayer = playerList.getPlayerList().get(currentPlayerIndex);
     }
 
-    public int getAnswer() {
-        return answer;
+    public int getNumber2() {
+        return number2;
     }
 
-    public int getNumber() {
-        return number;
+    public int getNumber1() {
+        return number1;
     }
 
     public void renewNumbers(){
-        answer = r.nextInt((100)+1);
-        number = r.nextInt((100)+1);
+        number2 = r.nextInt((100)+1);
+        number1 = r.nextInt((100)+1);
     }
 
 
@@ -44,11 +44,11 @@ public class Game {
     public String guess(boolean over) {
         String toReturn;
 
-        if(answer == number) toReturn = "same";
-        else if(over && number < answer) {
+        if(number1 == number2) toReturn = "same";
+        else if(over && number1 < number2) {
             toReturn = "correct";
         }
-        else if(!over && number > answer) {
+        else if(!over && number1 > number2) {
             toReturn = "correct";
         }
         else {
