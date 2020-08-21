@@ -16,25 +16,25 @@ public class GameBoard {
 
     //first window
     JFrame frame1 = new JFrame();
-    JLabel label = new JLabel("Type the amount of players!");
-    JTextField field = new JTextField();
-    JButton submit1 = new JButton("Submit");
+    JLabel labelFrame1 = new JLabel("Type the amount of players!");
+    JTextField fieldFrame1 = new JTextField();
+    JButton submit1Frame1 = new JButton("Submit");
 
     //second window
     JFrame frame2 = new JFrame();
-    JPanel panel = new JPanel();
-    JButton submit2 = new JButton("Submit Names");
+    JPanel panelFrame2 = new JPanel();
+    JButton submit2Frame2 = new JButton("Submit Names");
 
     //third window
     JFrame frame3 = new JFrame();
-    JPanel buttons = new JPanel();
-    JPanel startPanel = new JPanel();
-    JLabel labelName = new JLabel("Name", SwingConstants.CENTER);
-    JLabel labelDrinkOrNot = new JLabel("", SwingConstants.CENTER);
-    JTextArea log = new JTextArea(100, 40);
-    JButton higher = new JButton("Higher");
-    JButton lower = new JButton("Lower");
-    JButton startKnapp = new JButton("Start");
+    JPanel buttonsFrame3 = new JPanel();
+    JPanel startPanelFrame3 = new JPanel();
+    JLabel labelNameFrame3 = new JLabel("Name", SwingConstants.CENTER);
+    JLabel labelDrinkOrNotFrame3 = new JLabel("", SwingConstants.CENTER);
+    JTextArea logFrame3 = new JTextArea(100, 40);
+    JButton higherFrame3 = new JButton("Higher");
+    JButton lowerFrame3 = new JButton("Lower");
+    JButton startKnappFrame3 = new JButton("Start");
 
     GameBoard() {
 
@@ -44,29 +44,29 @@ public class GameBoard {
         frame1.setVisible(true);
         frame1.setLocationRelativeTo(null);
 
-        frame1.add(label);
-        frame1.add(field);
-        frame1.add(submit1);
+        frame1.add(labelFrame1);
+        frame1.add(fieldFrame1);
+        frame1.add(submit1Frame1);
 
-        submit1.addActionListener(e -> {
+        submit1Frame1.addActionListener(e -> {
 
-            String inputNumber = field.getText();
+            String inputNumber = fieldFrame1.getText();
             amountOfPlayers = Integer.parseInt(inputNumber);
             frame1.setVisible(false);
             frame2.setVisible(true);
             createInputList();
-            panel.add(submit2);
+            panelFrame2.add(submit2Frame2);
 
         });
 
         // frame 2
-        frame2.add(panel);
+        frame2.add(panelFrame2);
         frame2.setSize(400, 500);
-        panel.setLayout(new GridLayout(amountOfPlayers, 1));
+        panelFrame2.setLayout(new GridLayout(amountOfPlayers, 1));
         frame2.setLocationRelativeTo(null);
 
-        submit2.addActionListener(e -> {
-            iterateOverJTextFields(panel);
+        submit2Frame2.addActionListener(e -> {
+            iterateOverJTextFields(panelFrame2);
             playerList.createPlayers(personNameList);
             newGame = new Game(playerList);
             frame2.setVisible(false);
@@ -78,57 +78,57 @@ public class GameBoard {
         frame3.setLayout(new BorderLayout());
         frame3.setLocationRelativeTo(null);
         frame3.setSize(400, 500);
-        frame3.add(log, BorderLayout.CENTER);
-        frame3.add(startPanel, BorderLayout.NORTH);
-        startPanel.add(startKnapp);
-        startPanel.setVisible(true);
-        buttons.setLayout(new GridLayout(1, 3));
-        buttons.setVisible(false);
+        frame3.add(logFrame3, BorderLayout.CENTER);
+        frame3.add(startPanelFrame3, BorderLayout.NORTH);
+        startPanelFrame3.add(startKnappFrame3);
+        startPanelFrame3.setVisible(true);
+        buttonsFrame3.setLayout(new GridLayout(1, 3));
+        buttonsFrame3.setVisible(false);
 
-        startKnapp.addActionListener(e -> {
+        startKnappFrame3.addActionListener(e -> {
 
-            labelName.setText(newGame.getCurrentPlayer().getName());
-            labelDrinkOrNot.setText(" " + newGame.getNumber());
+            labelNameFrame3.setText(newGame.getCurrentPlayer().getName());
+            labelDrinkOrNotFrame3.setText(" " + newGame.getNumber());
             firstNameAndDrink = newGame.getCurrentPlayer().getName();
             newGame.renewNumbers();
 
-            startPanel.setVisible(false);
-            frame3.add(buttons, BorderLayout.NORTH);
-            buttons.setVisible(true);
-            buttons.add(labelName);
-            buttons.add(lower);
-            buttons.add(labelDrinkOrNot);
-            buttons.add(higher);
+            startPanelFrame3.setVisible(false);
+            frame3.add(buttonsFrame3, BorderLayout.NORTH);
+            buttonsFrame3.setVisible(true);
+            buttonsFrame3.add(labelNameFrame3);
+            buttonsFrame3.add(lowerFrame3);
+            buttonsFrame3.add(labelDrinkOrNotFrame3);
+            buttonsFrame3.add(higherFrame3);
 
 
-            higher.addActionListener(f -> {
+            higherFrame3.addActionListener(f -> {
 
                 if (newGame.guess(true).equals("correct")) {
-                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK\n");
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK\n");
                 } else {
-                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK\n");
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK\n");
                 }
 
-                labelDrinkOrNot.setText(" " + newGame.getNumber());
+                labelDrinkOrNotFrame3.setText(" " + newGame.getNumber());
 
                 newGame.renewNumbers();
-                labelName.setText(newGame.getCurrentPlayer().getName());
+                labelNameFrame3.setText(newGame.getCurrentPlayer().getName());
 
             });
 
 
-            lower.addActionListener(f -> {
+            lowerFrame3.addActionListener(f -> {
 
                 if (newGame.guess(false).equals("correct")) {
-                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK\n");
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK\n");
                 } else {
-                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK\n");
+                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK\n");
                 }
 
-                labelDrinkOrNot.setText(" " + newGame.getNumber());
+                labelDrinkOrNotFrame3.setText(" " + newGame.getNumber());
 
                 newGame.renewNumbers();
-                labelName.setText(newGame.getCurrentPlayer().getName());
+                labelNameFrame3.setText(newGame.getCurrentPlayer().getName());
 
             });
         });
@@ -137,7 +137,7 @@ public class GameBoard {
 
     public void createInputList() {
         for (int i = 0; i < amountOfPlayers; i++) {
-            panel.add(new JTextField());
+            panelFrame2.add(new JTextField());
         }
     }
 
