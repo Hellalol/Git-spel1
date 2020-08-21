@@ -45,10 +45,10 @@ public class Game {
         String toReturn;
 
         if(answer == number) toReturn = "same";
-        else if(over && number > answer) {
+        else if(over && number < answer) {
             toReturn = "correct";
         }
-        else if(!over && number < answer) {
+        else if(!over && number > answer) {
             toReturn = "correct";
         }
         else {

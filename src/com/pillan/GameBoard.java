@@ -103,9 +103,9 @@ public class GameBoard {
             higher.addActionListener(f -> {
 
                 if (newGame.guess(true).equals("correct")) {
-                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK" + newGame.getAnswer() + "\n" );
+                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK" + newGame.getAnswer() + "\n" );
                 } else {
-                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK " + newGame.getAnswer() + "\n");
+                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK " + newGame.getAnswer() + "\n");
                 }
 
                 newGame.renewNumbers();
@@ -119,9 +119,9 @@ public class GameBoard {
             lower.addActionListener(f -> {
 
                 if (newGame.guess(false).equals("correct")) {
-                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK" + newGame.getAnswer() + "\n");
+                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK" + newGame.getAnswer() + "\n");
                 } else {
-                    log.append(newGame.getCurrentPlayer().getName() + " - NO DRINK " + newGame.getAnswer() + "\n");
+                    log.append(newGame.getCurrentPlayer().getName() + " - DRINK " + newGame.getAnswer() + "\n");
                 }
 
                 newGame.renewNumbers();
