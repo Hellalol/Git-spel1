@@ -104,9 +104,9 @@ public class GameBoard {
             higherFrame3.addActionListener(f -> {
 
                 if (newGame.guess(true).equals("correct")) {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
+                    logFrame3.append(labelNameFrame3.getText() + " - NO DRINK, " + "the number was: " + newGame.getNumber2() + "\n");
                 } else {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
+                    logFrame3.append(labelNameFrame3.getText() + " - DRINK, " + "the number was: " + newGame.getNumber2() + "\n");
                 }
 
                 newGame.renewNumbers();
@@ -120,9 +120,9 @@ public class GameBoard {
             lowerFrame3.addActionListener(f -> {
 
                 if (newGame.guess(false).equals("correct")) {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - NO DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
+                    logFrame3.append(labelNameFrame3.getText() + " - NO DRINK, " + "the number was: " + newGame.getNumber2() + "\n");
                 } else {
-                    logFrame3.append(newGame.getCurrentPlayer().getName() + " - DRINK, " + "the number was: " + newGame.getNumber2() + "\n" );
+                    logFrame3.append(labelNameFrame3.getText() + " - DRINK, " + "the number was: " + newGame.getNumber2() + "\n");
                 }
 
                 newGame.renewNumbers();

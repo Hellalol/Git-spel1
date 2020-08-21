@@ -26,9 +26,9 @@ public class Game {
         return number1;
     }
 
-    public void renewNumbers(){
-        number2 = r.nextInt((100)+1);
-        number1 = r.nextInt((100)+1);
+    public void renewNumbers() {
+        number2 = r.nextInt((100) + 1);
+        number1 = r.nextInt((100) + 1);
     }
 
 
@@ -36,7 +36,7 @@ public class Game {
         return currentPlayer;
     }
 
-    public void setCurrentPlayerToIndex(){
+    public void setCurrentPlayerToIndex() {
         currentPlayer = playerList.get(currentPlayerIndex);
     }
 
@@ -44,20 +44,19 @@ public class Game {
     public String guess(boolean over) {
         String toReturn;
 
-        if(number1 == number2) toReturn = "same";
-        else if(over && number1 < number2) {
+        if (number1 == number2) toReturn = "same";
+        else if (over && number1 < number2) {
             toReturn = "correct";
-        }
-        else if(!over && number1 > number2) {
+        } else if (!over && number1 > number2) {
             toReturn = "correct";
+        } else {
+            toReturn = "incorrect";
         }
-        else {
-            toReturn = "incorrect";}
 
         currentPlayer.setAttempts(currentPlayer.getAttempts() + 1);
 
-        if(currentPlayerIndex + 1 > playerList.size() - 1)
-            currentPlayerIndex = 0 ;
+        if (currentPlayerIndex + 1 > playerList.size() - 1)
+            currentPlayerIndex = 0;
         else
             currentPlayerIndex++;
 

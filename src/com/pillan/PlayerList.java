@@ -12,7 +12,7 @@ public class PlayerList {
 
 
     public List<Player> createPlayers(List<String> playerNameList) {
-        for (String name: playerNameList) {
+        for (String name : playerNameList) {
             player = new Player(name);
             playerList.add(player);
         }
@@ -29,7 +29,7 @@ public class PlayerList {
         return null;
     }
 
-    public void shufflePlayers(){
+    public void shufflePlayers() {
         Collections.shuffle(playerList);
     }
 
